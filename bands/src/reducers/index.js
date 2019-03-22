@@ -3,24 +3,24 @@ import { combineReducers } from "redux";
 const bands = () => {
   return [
     {
-      Name: "Coldplay",
-      Origin: "London, England"
+      name: "Coldplay",
+      origin: "London, England"
     },
     {
-      Name: "Maroon 5",
-      Origin: "Los Angeles, California"
+      name: "Maroon 5",
+      origin: "Los Angeles, California"
     },
     {
-      Name: "Queen",
-      Origin: "London, England"
+      name: "Queen",
+      origin: "London, England"
     },
     {
-      Name: "The Beatles",
-      Origin: "Liverpool, England"
+      name: "The Beatles",
+      origin: "Liverpool, England"
     },
     {
-      Name: "AC/DC",
-      Origin: "Sydney, Australia"
+      name: "AC/DC",
+      origin: "Sydney, Australia"
     }
   ];
 };
