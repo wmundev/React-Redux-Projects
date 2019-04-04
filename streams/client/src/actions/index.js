@@ -8,6 +8,7 @@ import {
   DELETE_STREAM
 } from "./types.js";
 import streamAPI from "../api/streamAPI";
+import history from "../history";
 
 export const signIn = userId => {
   return {
@@ -36,11 +37,13 @@ export const createStream = formValues => async (dispatch, getState) => {
   const userId = getState().auth.userId;
   const response = await streamAPI.post("/streams", { ...formValues, userId });
   dispatch({ type: CREATE_STREAM, payload: response.data });
+  history.push("/");
 };
 
 export const updateStream = (formValues, id) => async dispatch => {
   const response = await streamAPI.patch(`/streams/${id}`, formValues);
   dispatch({ type: UPDATE_STREAM, payload: response.data });
+  history.push("/");
 };
 
 export const deleteStream = id => async dispatch => {
