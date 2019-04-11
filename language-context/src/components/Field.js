@@ -5,7 +5,7 @@ class Field extends React.Component {
   static contextType = LanguageContext;
 
   renderLabelText() {
-    return this.context === "English" ? "name" : "姓名";
+    return this.context.language === "English" ? "name" : "姓名";
   }
 
   render(){
