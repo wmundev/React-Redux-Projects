@@ -1,0 +1,19 @@
+.user-info {
+  border: 1px solid;
+  box-shadow: 5px 10px #888888;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 10px auto;
+  text-align: center;
+  width: 50%;
+}
+
+.input-div {
+  text-align: center;
+}
+
+.user-input {
+  width: 20%;
+  border: 1px solid;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 10px 10px;
+}
