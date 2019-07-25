@@ -1,7 +1,23 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PostDetail from "./PostDetail";
+import { fetchUsersAndPosts } from "../actions";
 
-const App = () => {
-  return <div>Hello</div>;
-};
+class App extends Component {
+  componentDidMount = () => {
+    this.props.fetchUsersAndPosts();
+  };
 
-export default App;
+  render() {
+    return (
+      <div className="ui container">
+        <PostDetail />
+      </div>
+    );
+  }
+}
+
+export default connect(
+  null,
+  { fetchUsersAndPosts }
+)(App);
