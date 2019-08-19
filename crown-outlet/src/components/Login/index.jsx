@@ -2,14 +2,22 @@ import React from "react";
 import "./Login.scss";
 import FormInput from "../FormInput";
 import CustomButton from "../CustomButton";
-import { signInWithGoogle } from "../../firebase";
+import { auth, signInWithGoogle } from "../../firebase";
 
 class Login extends React.Component {
   state = { email: "", password: "" };
 
-  onSubmit = e => {
+  onSubmit = async e => {
     e.preventDefault();
-    this.setState({ email: "", password: "" });
+    try {
+      const { email, password } = this.state;
+      await auth.signInWithEmailAndPassword(email, password);
+    } catch (error) {
+      console.log(error.message);
+      alert(error.message);
+    } finally {
+      this.setState({ email: "", password: "" });
+    }
   };
 
   onInputChange = e => {
