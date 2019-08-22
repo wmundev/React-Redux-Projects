@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import "./Header.scss";
 import CartIcon from "../CartIcon";
 import CartDropdown from "../CartDropdown";
+import { getCurrentUser } from "../../redux/user/userSelectors";
+import { getDropdownStatus } from "../../redux/cart/cartSelectors";
 
 const Header = ({ currentUser, showDropdown }) => {
   const renderSignInOrOut = () => {
@@ -40,10 +43,8 @@ const Header = ({ currentUser, showDropdown }) => {
   );
 };
 
-const mapStateToProps = ({ cart: { showDropdown } }) => {
-  return {
-    showDropdown
-  };
-};
-
+const mapStateToProps = createStructuredSelector({
+  currentUser: getCurrentUser,
+  showDropdown: getDropdownStatus
+});
 export default connect(mapStateToProps)(Header);
