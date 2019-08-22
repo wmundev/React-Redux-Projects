@@ -2,9 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase";
+import { connect } from "react-redux";
 import "./Header.scss";
+import CartIcon from "../CartIcon";
+import CartDropdown from "../CartDropdown";
 
-const Header = ({ currentUser }) => {
+const Header = ({ currentUser, showDropdown }) => {
   const renderSignInOrOut = () => {
     return currentUser ? (
       <div className="option" onClick={() => auth.signOut()}>
@@ -30,9 +33,17 @@ const Header = ({ currentUser }) => {
           CONTACT
         </Link>
         {renderSignInOrOut()}
+        <CartIcon />
       </div>
+      {showDropdown ? <CartDropdown /> : null}
     </div>
   );
 };
 
-export default Header;
+const mapStateToProps = ({ cart: { showDropdown } }) => {
+  return {
+    showDropdown
+  };
+};
+
+export default connect(mapStateToProps)(Header);

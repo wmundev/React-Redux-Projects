@@ -6,7 +6,7 @@ const CollectionPreview = ({ title, items }) => {
   const renderItems = () => {
     const itemsContent = items
       .filter((item, index) => index < 4)
-      .map(item => <CollectionItem key={item.id} {...item} />);
+      .map(item => <CollectionItem key={item.id} item={item} />);
     return itemsContent;
   };
 

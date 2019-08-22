@@ -6,6 +6,7 @@ import Header from "../Header";
 import HomePage from "../../pages/HomePage";
 import ShopPage from "../../pages/ShopPage";
 import LoginAndSignUpPage from "../../pages/LoginAndSignUpPage";
+import CheckoutPage from "../../pages/CheckoutPage";
 import { auth, createUserDocument } from "../../firebase";
 import { setCurrentUser } from "../../redux/user/userActions";
 
@@ -42,6 +43,7 @@ class App extends React.Component {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/shop" component={ShopPage} />
             <Route exact path="/loginsignup" component={LoginAndSignUpPage} />
+            <Route exact path="/checkout" component={CheckoutPage} />
           </Switch>
         </div>
       </BrowserRouter>
@@ -49,9 +51,9 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ currentUser }) => {
+const mapStateToProps = ({ user }) => {
   return {
-    currentUser
+    currentUser: user.currentUser
   };
 };
 
