@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import "./Header.scss";
 import CartIcon from "../CartIcon";
-import CartDropdown from "../CartDropdown";
+import CartDropdownContainer from "../CartDropdown/CartDropdownContainer";
 import { getCurrentUser } from "../../redux/user/userSelectors";
 import { getDropdownStatus } from "../../redux/cart/cartSelectors";
 
@@ -38,7 +38,7 @@ const Header = ({ currentUser, showDropdown }) => {
         {renderSignInOrOut()}
         <CartIcon />
       </div>
-      {showDropdown ? <CartDropdown /> : null}
+      {showDropdown ? <CartDropdownContainer /> : null}
     </div>
   );
 };

@@ -17,3 +17,13 @@ export const getCollectionByKey = collectionKey =>
     [getCollections],
     collectionData => collectionData[collectionKey]
   );
+
+export const getCollectionIsFetching = createSelector(
+  [getShop],
+  shop => shop.isFetching
+);
+
+export const getCollectionIsFetched = createSelector(
+  [getShop],
+  shop => shop.isLoaded
+);
